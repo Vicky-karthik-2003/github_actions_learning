@@ -14,4 +14,6 @@ jobs:
 
     steps:
       - name: "car ownership"
-        run: echo "$OWNER owns a  $CAR"
+        run: echo "$OWNER owns $color a  $CAR"
+        env:
+            color: black
