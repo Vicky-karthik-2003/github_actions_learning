@@ -4,14 +4,14 @@ on:
   workflow_dispatch:
 
 env:
-  Car: beat
+  CAR: beat
 
 jobs:
   car_name:
     runs-on: ubuntu-latest
     env:
-      Owner: barath
+      OWNER: barath
 
     steps:
       - name: "car ownership"
-        run: echo "$Owner owns a  $Car"
+        run: echo "$OWNER owns a  $CAR"
