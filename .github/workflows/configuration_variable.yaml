@@ -10,4 +10,4 @@ jobs:
             owner: barath
         steps:
             - name: "car ownership"
-              run: echo "$owner owns a ${{var.V_CAR_COLOR}} color  $car"
+              run: echo "$owner owns a ${{vars.V_CAR_COLOR}} color  $car"
