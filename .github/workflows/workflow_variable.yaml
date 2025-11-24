@@ -2,12 +2,12 @@ name: Testing workflow variable
 on:
   workflow_dispatch
 env:
-    car:beat
+    car: beat
 jobs:
     car_name:
         runs-on: ubuntu-latest
         env:
-            owner:barath
+            owner: barath
         steps:
-            -name: "car ownership"
-            run: echo "$owner owns a $car"
+            - name: "car ownership"
+              run: echo "$owner owns a $car"
