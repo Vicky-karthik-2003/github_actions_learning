@@ -1,0 +1,17 @@
+name: Using Artifacts in actions
+
+on: workflow_dispatch
+
+jobs:
+
+    print:
+        runs-on: ubuntu-lates
+        steps:
+            - name: Print
+              run: echo "barath " >artifacts.txt
+
+            - name: Creating artifacts folder
+              uses : actions/upload-artifact@v4
+              with:
+                  name: artifact
+                  path: artifacts.txt
