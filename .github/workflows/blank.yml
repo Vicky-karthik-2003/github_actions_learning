@@ -8,50 +8,51 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create file
-        run: echo "barath" > artifacts.txt
+        run: echo "Barath" > artifacts.txt
 
-      - name: Upload artifact
+      - name: Upload for next job
         uses: actions/upload-artifact@v4
         with:
-          name: my-artifact
+          name: temp-artifact
           path: artifacts.txt
 
   job2_add_waj:
     runs-on: ubuntu-latest
     needs: job1_create
     steps:
-      - name: Download artifact
+      - name: Download temp artifact
         uses: actions/download-artifact@v4
         with:
-          name: my-artifact
+          name: temp-artifact
           path: .
 
-      - name: Add "waj" to file
+      - name: Add "waj"
         run: echo "waj" >> artifacts.txt
 
-      - name: Upload updated artifact
+      - name: Upload back (overwrite old temp)
         uses: actions/upload-artifact@v4
         with:
-          name: my-artifact-2
+          name: temp-artifact       
+          overwrite: true           
           path: artifacts.txt
 
   job3_add_K:
     runs-on: ubuntu-latest
     needs: job2_add_waj
     steps:
-      - name: Download artifact
+      - name: Download temp artifact
         uses: actions/download-artifact@v4
         with:
-          name: my-artifact-2
+          name: temp-artifact
           path: .
 
-      - name: Add "K" to file
+      - name: Add "K"
         run: echo "K" >> artifacts.txt
 
       - name: Print final content
         run: cat artifacts.txt
 
-      - name: Upload final artifact
+      - name:  final artifact 
         uses: actions/upload-artifact@v4
         with:
           name: my-final-artifact
