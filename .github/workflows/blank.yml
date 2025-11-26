@@ -27,7 +27,7 @@ jobs:
           path: .
 
       - name: Add "waj" to file
-        run: echo "waj" >> artifacts.txt
+        run: echo "waj" > artifacts.txt
 
       - name: Upload updated artifact
         uses: actions/upload-artifact@v4
